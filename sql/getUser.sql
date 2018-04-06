@@ -1,3 +1,3 @@
 select userID, firstName, lastName
 from users
-where userID = :userID; 
+where userID = :userID and userPassword = :userPassword; 

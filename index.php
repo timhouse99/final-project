@@ -36,15 +36,15 @@ include('config.php');
 </head>
 <body>
 	<div class="page">
-		<h1>Form</h1>
+		<h1>Crafter-web login</h1>
 			<form action="form.php" method="Post">
 				<div class="form-element">
 					<label>User ID:</label>
-						<input type="text" name="userID" value="userID" />
+						<input type="text" name="userID" value="" />
 				</div>
 				<div class="form-element">
-					<label>Password:</label>
-					<input type ="password" name="password" value="password" />
+					<label>User Password:</label>
+					<input type ="password" name="userPassword" value="" />
 				</div>
 				<div class="form-element">
 					<input type="submit" class="button" />&nbsp;
