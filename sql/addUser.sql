@@ -1,2 +1,2 @@
-insert into users (userID, firstName, lastName, userPassword)
-Values (:userID, :firstName, :lastName, :userPassword);
+insert into final_users (firstName, lastName, userPassword)
+Values (:firstName, :lastName, :userPassword);

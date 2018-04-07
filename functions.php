@@ -14,18 +14,18 @@ function searchUser($userID, $userPassword, $database) {
 	return $user;
 }
 
-function addUser($userID, $firstName, $lastName, $userPassword, $database) {
+function addUser($firstName, $lastName, $userPassword, $database) {
 	// Add user to database
 	$sql = file_get_contents('sql/addUser.sql');
 	$params = array(
-		'userID' => $userID,
 		'firstName' => $firstName,
 		'lastName' => $lastName,
 		'userPassword' => $userPassword
 	);
 	$statement = $database->prepare($sql);
 	$statement->execute($params);
-	
+	$userID = $database->lastInsertId();
+	return $userID;
 }
 
 ?>

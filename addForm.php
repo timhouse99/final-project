@@ -3,16 +3,14 @@ include('config.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
-		$userID = htmlspecialchars($_POST['userID']);
 		$firstName = htmlspecialchars($_POST['firstName']);
 		$lastName = htmlspecialchars($_POST['lastName']);
 		$userPassword = htmlspecialchars($_POST['userPassword']);
 
-		addUser($userID, $firstName, $lastName, $userPassword, $database);
-		$users = searchUser($userID, $userPassword, $database);
-
-		$action = 'update';
-		$user = $users[0];
+		$userID = addUser($firstName, $lastName, $userPassword, $database);
+		$_SESSION["userID"] = $userID;
+		//redirect to home.php as logged in user 
+		header('location: home.php');
 }
 
 ?>
@@ -22,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	
+	<div class="page">
+		<?php include('includes/menu.php');?>
+	</div>
 	<title>Web Form</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -33,11 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<div class="page">
 		<h1>User Form</h1>
 			<form action="" method="Post">
-				<div class="form-element">	
-					<h2>Add User</h2>
-					<label>User ID:</label>
-						<input type="text" name="userID" value="" />
-				</div>
 				<div class="form-element">
 					<label>First Name:</label>
 						<input type="text" name="firstName" value="" />
@@ -55,4 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					<input type="reset" class="button" />
 				</div>
 			</form>
+	</div>
+</body>
+</html>
 		

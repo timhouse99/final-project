@@ -1,3 +1,3 @@
 select userID, firstName, lastName
-from users
+from final_users
 where userID = :userID and userPassword = :userPassword; 

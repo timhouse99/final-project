@@ -27,7 +27,9 @@ include('config.php');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	
+	<div class="page">
+		<?php include('includes/menu.php');?>
+	</div>
 	<title>Web Form</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
