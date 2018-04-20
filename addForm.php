@@ -20,9 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<div class="page">
-		<?php include('includes/menu.php');?>
-	</div>
 	<title>Web Form</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -30,6 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div class="menu">
+		<?php include('includes/menu.php');?>
+	</div>
 	<div class="page">
 		<h1>User Form</h1>
 			<form action="" method="Post">

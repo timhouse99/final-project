@@ -2,8 +2,8 @@
 include('config.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-		$search = htmlspecialchars($_POST['search']);
-		$searchResults = search($search);
+		$message = htmlspecialchars($_POST['message']);
+		$message = addMessage($_SESSION[userID],$message);
 }
 
 ?>
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Search Form</title>
+	<title>Messages Form</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
@@ -24,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<?php include('includes/menu.php');?>
 	</div>
 	<div class="page">
-		<h1>Search</h1>
+		<h1>Messages</h1>
 			<form action="" method="Post">
 				<div class="form-element">
-					<label>Search:</label>
-						<input type="text" name="search" value="" />
+					<label>Message:</label>
+						<input type="memo" name="message" value="" />
 				</div>		
 				<div class="form-element">
 					<input type="submit" class="button" />&nbsp;
@@ -38,3 +38,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	</div>
 </body>
 </html>
+		

@@ -28,4 +28,13 @@ function addUser($firstName, $lastName, $userPassword, $database) {
 	return $userID;
 }
 
+function getEvents($database) {
+	// Get user from database
+	$sql = file_get_contents('sql/getEvents.sql');
+	$statement = $database->prepare($sql);
+	$statement->execute();
+	$events = $statement->fetchAll(PDO::FETCH_ASSOC);
+	return $events;
+}
+
 ?>
