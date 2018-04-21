@@ -1,7 +1,6 @@
 <?php 
 include('config.php');
 
-
 ?>
 
 
@@ -9,7 +8,7 @@ include('config.php');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Contact Us</title>
+	<title>About</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
@@ -20,7 +19,7 @@ include('config.php');
 		<?php include('includes/menu.php');?>
 	</div>
 	<div class="page">
-		<h1>Contact Us</h1>
+		<h1>About</h1>
 			
 	</div>
 </body>

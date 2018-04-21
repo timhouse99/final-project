@@ -1,2 +1,3 @@
 Select eventID, eventName, location, date, userID
-from final_events;
+From final_events
+where eventID = :eventID;

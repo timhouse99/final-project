@@ -1,10 +1,15 @@
 <?php 
 
 include('config.php');
+
+if (isset($_SESSION["userID"])) {
 $userID = $_SESSION["userID"];
 
 $events = getEvents($database);
-
+}
+else {
+	header('location: index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,15 +32,20 @@ $events = getEvents($database);
 </div>
 <div class="page">
 <h1>Events</h1>
-<div>
+<table>
+<tr>
+	<th>Event Title</th>
+	<th>Location</th>
+	<th>Date Time</th>
+	<th>Edit Event</th>
+</tr>
 <?php foreach ($events as $event) : ?>
-	<div class="page">
 	<TR>
-		<td><?php echo $event['eventName']; ?></td> <td><?php echo $event['location']; ?></td> <td><?php echo $event['time']; ?></td>
+		<td><?php echo $event['eventName']; ?>  </td> <td><?php echo $event['location']; ?>  </td> <td><?php echo $event['date']; ?>  </td> <td> <a href="eventForm.php?eventID=<?php echo $event['eventID']; ?>" >Edit Event</a></td>
 	</TR>
-	</div>
 <?php endforeach ?>
-</div>
+</table>
+<a href="eventForm.php">Add Event</a>
 </div>
 <div class="page">
 <p>Logged in user: <?php echo $userID?>
