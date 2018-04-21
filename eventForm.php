@@ -44,7 +44,7 @@ else {
 		$eventID = addEvent($eventName, $location, $date, $userID, $database);
 		$_SESSION["message"] = "Thank you for adding Event";
 		//redirect to home.php as logged in user 
-		//header('location: home.php');
+		header('location: home.php');
 	}
 
 }
@@ -62,15 +62,7 @@ else {
 	<meta name="author" content="">
 	
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="//resources/demo/style.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1.jquery-ui.js"></script>
-	<script>
-		$( function() {
-			$( "#datepicker" ).datepicker();
-		} );
-	</script>
+	
 </head>
 <body>
 	<div class="menu">
@@ -98,9 +90,9 @@ else {
 				<div class="form-element">
 					<label>Date/Time:</label>
 					<?php if($formType == 'add') : ?>
-						<input type="date" name="date" value="" />
+						<input type="datetime" name="date" value="" />
 					<?php elseif($formType == 'edit') : ?>
-						<input type="date" id="datepicker" name="date" value="<?php echo $event['date']?>" />
+						<input type="datetime" name="date" value="<?php echo $event['date']?>" />
 					<?php endif ?>
 				</div>
 				<div class="form-element">
