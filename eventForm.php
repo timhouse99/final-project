@@ -15,12 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$date = htmlspecialchars($_POST['date']);
 		$userID = $_SESSION["userID"];
 		$eventID = $eventID;
-		
-		echo $eventName;
-		echo $location;
-		echo $date;
-		echo $userID;
-		
+			
 		$eventID = updateEvent($eventID, $eventName, $location, $date, $userID, $database);
 		$_SESSION["message"] = "Thank you for updating the Event";
 		//redirect to home.php as logged in user 
@@ -35,11 +30,6 @@ else {
 		$location = htmlspecialchars($_POST['location']);
 		$date = htmlspecialchars($_POST['date']);
 		$userID = $_SESSION["userID"];
-		
-		echo $eventName;
-		echo $location;
-		echo $date;
-		echo $userID;
 		
 		$eventID = addEvent($eventName, $location, $date, $userID, $database);
 		$_SESSION["message"] = "Thank you for adding Event";
@@ -62,6 +52,9 @@ else {
 	<meta name="author" content="">
 	
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="jquery-ui.min.css">
+	<script src="external/jquery/jquery.js"></script>
+	<script src="jquery-ui.min.js"></script>
 	
 </head>
 <body>
@@ -90,7 +83,7 @@ else {
 				<div class="form-element">
 					<label>Date/Time:</label>
 					<?php if($formType == 'add') : ?>
-						<input type="datetime" name="date" value="" />
+						<input type="date" name="date" value="" />
 					<?php elseif($formType == 'edit') : ?>
 						<input type="datetime" name="date" value="<?php echo $event['date']?>" />
 					<?php endif ?>

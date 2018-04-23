@@ -49,6 +49,16 @@ function getEvent($eventID, $database) {
 	return $event;
 }
 
+function search($search, $database) {
+	$sql = file_get_contents('sql/searchEvent.sql');
+	$params = array(
+		'search' => "%".$search."%"
+	);
+	$statement = $database->prepare($sql);
+	$statement->execute($params);
+	$event = $statement->fetchAll(PDO::FETCH_ASSOC);
+	return $event;
+}
 
 function addEvent($eventName, $location, $date, $userID, $database) {
 	// Add user to database
@@ -79,5 +89,30 @@ function updateEvent($eventID, $eventName, $location, $date, $userID, $database)
 	$statement->execute($params);
 	return;
 }
+
+function getMessages($database) {
+	// Get event from database
+	$sql = file_get_contents('sql/getMessages.sql');
+	$statement = $database->prepare($sql);
+	$statement->execute();
+	$messages = $statement->fetchAll(PDO::FETCH_ASSOC);
+	return $messages;
+}
+
+function addMessage($userID, $message, $messageTime, $database) {
+	// Add user to database
+	$sql = file_get_contents('sql/addMessage.sql');
+	$params = array(
+		'userID' => $userID,
+		'message' => $message,
+		'messageTime' => $messageTime,
+	);
+	$statement = $database->prepare($sql);
+	$statement->execute($params);
+	$messageID = $database->lastInsertId();
+	return $messageID;
+}
+
+
 
 ?>

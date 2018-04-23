@@ -21,7 +21,11 @@ include('config.php');
 	</div>
 	<div class="page">
 		<h1>Contact Us</h1>
-			
+			<address>
+				Crafter-Web<br />
+				email us: <a href="mail@crafter-web.com"> Crafter-Web</a><br />
+				call us: <a href="tel:1-800-666-5555">1-800-666-5555</a>
+			</address>
 	</div>
 </body>
 </html>

@@ -56,6 +56,7 @@ $_SESSION['errMsg'] = "Invalid username or password";
 <body>
 	<div class="page">
 		<h1 class="heading">Crafter-web</h1>
+	<p>Crafter-web is the place to share craft shows and talk about your ideas. Sign-up for Crafter-web below.</p><img src="images/show1.jpg" style="width:200px;height:150px;">
 	</div>
 	<div class="page">
 		<p><h1>Login</h1></p>

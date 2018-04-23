@@ -11,6 +11,15 @@ body {
 	box-sizing: inherit;
 }
 
+.middle {
+	max-width: 600px;
+	margin: 10px auto;
+	background-color: white;
+	padding: 20px 30px;
+	float: right;
+}
+
+
 .page {
 	max-width: 600px;
 	margin: 10px auto;
@@ -136,4 +145,19 @@ table, th, td {
 	border: 1px solid black;
 	border-collapse: collapse;
 	padding: 15px;
+}
+
+/*Profile*/
+
+.photo {
+	float: left;
+	width: 66%;
+	padding: 5px;
+}
+
+.user {
+	float: left;
+	width: 25%;
+	background-color: white;
+	padding: 5px;
 }
